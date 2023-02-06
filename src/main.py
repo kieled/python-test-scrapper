@@ -4,6 +4,7 @@ from consts import base
 from parser.requests import get_pages, main_request_data
 from parser import get_tree
 from utils import get_url_with_page, save_json
+import time
 
 
 async def main():
@@ -30,4 +31,10 @@ async def main():
         return save_json(results)
 
 
+start = time.time()
+
 asyncio.run(main())
+
+end = time.time()
+
+print(end - start)

@@ -40,8 +40,12 @@ def get_title(tree):
 
 
 def _get_number(tree, xpath_query):
-    value = _get_text(tree, xpath_query)
-    return int(''.join(re.findall(r'\d', value)))
+    try:
+        value = _get_text(tree, xpath_query)
+        return int(''.join(re.findall(r'\d', value)))
+    except Exception as e:
+        print(e.__class__.__name__)
+        return 0
 
 
 def get_price(tree):
